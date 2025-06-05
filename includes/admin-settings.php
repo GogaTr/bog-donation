@@ -53,10 +53,19 @@ function bog_donation_settings_init() {
             $label,
             function () use ($id) {
                 $options = get_option('bog_donation_settings');
+
+                $defaults = [
+                    'redirect_uri' => home_url('/bog-donation-callback'),
+                    'success_url' => home_url('/thanks'),
+                    'fail_url' => home_url('/fail'),
+                    'callback_url' => home_url('/bog-donation-callback'),
+                ];
+
+                $value = $options[$id] ?? ($defaults[$id] ?? '');
                 printf(
                     '<input type="text" name="bog_donation_settings[%1$s]" value="%2$s" class="regular-text">',
                     esc_attr($id),
-                    isset($options[$id]) ? esc_attr($options[$id]) : ''
+                    esc_attr($value)
                 );
             },
             'bog-donation-settings',
