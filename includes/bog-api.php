@@ -1,9 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
 
-/**
- * Get OAuth token from BOG
- */
 function bog_donation_get_token() {
     $options = get_option('bog_donation_settings');
     $client_id = $options['client_id'] ?? '';
@@ -29,15 +26,15 @@ function bog_donation_get_token() {
     return $body['access_token'] ?? new WP_Error('bog_token_missing', 'Token ვერ მოიძებნა.');
 }
 
-/**
- * Initiate a payment
- */
 function bog_donation_initiate_payment($amount) {
     $token = bog_donation_get_token();
     if (is_wp_error($token)) return $token;
 
     $options = get_option('bog_donation_settings');
-    $callback = $options['callback_url'] ?? home_url('/bog-donation-callback');
+
+    $callback = !empty($options['callback_url']) ? esc_url_raw($options['callback_url']) : home_url('/bog-donation-callback');
+    $success_url = !empty($options['success_url']) ? esc_url_raw($options['success_url']) : home_url('/thanks');
+    $fail_url = !empty($options['fail_url']) ? esc_url_raw($options['fail_url']) : home_url('/fail');
     $client_ip = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
 
     $response = wp_remote_post('https://ipgtest.georgiancard.ge/api/v1/checkout/url', [
@@ -49,7 +46,9 @@ function bog_donation_initiate_payment($amount) {
             'amount' => (int) $amount,
             'currency' => 'GEL',
             'client_ip_addr' => $client_ip,
-            'callback_url' => $callback
+            'callback_url' => $callback,
+            'success_url' => $success_url,
+            'fail_url' => $fail_url
         ])
     ]);
 
