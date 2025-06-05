@@ -1,0 +1,55 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: bog-donation\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ka_GE\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Client ID"
+msgstr "კლაიენტის ID"
+
+msgid "Client Secret"
+msgstr "საიდუმლო კოდი"
+
+msgid "Redirect URI"
+msgstr "დაბრუნების მისამართი"
+
+msgid "Success URL"
+msgstr "წარმატების მისამართი"
+
+msgid "Fail URL"
+msgstr "წარუმატებლობის მისამართი"
+
+msgid "Callback URL"
+msgstr "კოლბექის მისამართი"
+
+msgid "აირჩიეთ თანხა:"
+msgstr "აირჩიეთ თანხა:"
+
+msgid "სასურველი თანხა"
+msgstr "სასურველი თანხა"
+
+msgid "გადახდა საქართველოს ბანკით"
+msgstr "გადახდა საქართველოს ბანკით"
+
+msgid "დონაციის ტრანზაქციები"
+msgstr "დონაციის ტრანზაქციები"
+
+msgid "Transaction ID"
+msgstr "ტრანზაქციის კოდი"
+
+msgid "Status"
+msgstr "სტატუსი"
+
+msgid "Amount"
+msgstr "თანხა"
+
+msgid "Created At"
+msgstr "დამატების დრო"
+
+msgid "ახალი დონაცია - საქართველოს ბანკი"
+msgstr "ახალი დონაცია - საქართველოს ბანკი"
+
+msgid "მიმიღებულია ახალი დონაცია:"
+msgstr "მიმიღებულია ახალი დონაცია:"
